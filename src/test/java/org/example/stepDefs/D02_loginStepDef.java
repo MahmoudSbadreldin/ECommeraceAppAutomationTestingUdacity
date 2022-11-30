@@ -18,7 +18,7 @@ public class D02_loginStepDef {
 @When("^user login with \"(.*)\" and \"(.*)\"$")
     public void userLogin(String Email,String password){
     Hooks.webDriver.findElement(login.Email()).sendKeys(Email);
-    Hooks.webDriver.findElement(login.pass()).sendKeys(password    );
+    Hooks.webDriver.findElement(login.pass()).sendKeys(password);
 }
 @And("user press on login button")
 public void pressLogin(){

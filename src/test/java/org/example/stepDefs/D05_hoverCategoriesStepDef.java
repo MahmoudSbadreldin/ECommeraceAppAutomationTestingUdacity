@@ -1,4 +1,5 @@
 package org.example.stepDefs;
+import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -28,11 +29,14 @@ public class D05_hoverCategoriesStepDef {
         actions.moveToElement(mainCat.get(selectedCat)).perform();
         selectdCatTxt = mainCat.get(selectedCat).getText();
         Thread.sleep(2000);
+
+    }
+    @And("Subcategories displayed")
+    public void Subcategoriesdisplayed(){
         String dir = "(//ul[@class='top-menu notmobile']//ul)[" + selectedCat + 1 + "]/li";
         subCat = Hooks.webDriver.findElements(By.xpath(dir));
         Hooks.webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
-
     @When("user select sub category or select the main category")
     public void SubCategory() {
         if (!subCat.isEmpty()) {
